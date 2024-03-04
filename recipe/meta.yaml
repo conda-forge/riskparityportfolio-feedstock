@@ -1,5 +1,5 @@
 {% set name = "riskparityportfolio" %}
-{% set version = "0.4" %}
+{% set version = "0.5.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,17 +7,17 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/riskparityportfolio-{{ version }}.tar.gz
-  sha256: 2ed0fb566f396ff0eb2d085abe5ed363e75378e6b9f58635528c1efcd41fd29c
+  sha256: f86799a5f5ccc0bcf65586bb0106face026c284fdad65dcd1bbe3706dff2513b
   patches:
     - patches/0001-Ignore-the-vendored-eigen3.patch
 
 build:
-  skip: True  # [win]
+  skip: true  # [win]
   script:
     # Do not use the vendored sources of eigen.
     - rm -Rf third_party
     - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   build:
