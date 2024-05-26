@@ -1,5 +1,5 @@
 {% set name = "riskparityportfolio" %}
-{% set version = "0.5.1" %}
+{% set version = "0.6.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/riskparityportfolio-{{ version }}.tar.gz
-  sha256: f86799a5f5ccc0bcf65586bb0106face026c284fdad65dcd1bbe3706dff2513b
+  sha256: 66ae0fc161b181991dec828ee0a84820be2b36e1926393294ad6b61d093a7741
   patches:
     - patches/0001-Ignore-the-vendored-eigen3.patch
 
@@ -22,6 +22,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
   host:
     - python
