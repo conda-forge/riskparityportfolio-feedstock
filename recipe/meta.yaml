@@ -17,7 +17,7 @@ build:
     # Do not use the vendored sources of eigen.
     - rm -Rf third_party
     - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -41,7 +41,6 @@ requirements:
     - jax
     - quadprog
     - tqdm
-    - {{ pin_compatible('numpy') }}
 
 test:
   imports:
