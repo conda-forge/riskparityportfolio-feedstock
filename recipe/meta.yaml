@@ -34,6 +34,7 @@ requirements:
     - tqdm
     - pip
     - eigen
+    - setuptools
   run:
     - python
     - pybind11 >=2.4
