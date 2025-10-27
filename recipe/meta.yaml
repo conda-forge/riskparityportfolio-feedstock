@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/riskparityportfolio-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/riskparityportfolio-{{ version }}.tar.gz
   sha256: 66ae0fc161b181991dec828ee0a84820be2b36e1926393294ad6b61d093a7741
   patches:
     - patches/0001-Ignore-the-vendored-eigen3.patch
@@ -17,7 +17,7 @@ build:
     # Do not use the vendored sources of eigen.
     - rm -Rf third_party
     - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 2
 
 requirements:
   build:
@@ -34,6 +34,7 @@ requirements:
     - tqdm
     - pip
     - eigen
+    - setuptools
   run:
     - python
     - pybind11 >=2.4
